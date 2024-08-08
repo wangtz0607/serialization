@@ -62,4 +62,19 @@ private:
     const std::byte *cur_;
 };
 
+template <typename T>
+std::vector<std::byte> serialize(const T &value) {
+    SerializationStream ss;
+    ss << value;
+    return ss.vector();
+}
+
+template <typename T>
+T deserialize(std::vector<std::byte> buf) {
+    DeserializationStream ds(std::move(buf));
+    T value;
+    ds >> value;
+    return value;
+}
+
 } // namespace serialization
