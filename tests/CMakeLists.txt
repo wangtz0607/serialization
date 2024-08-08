@@ -3,6 +3,7 @@ add_executable(serialization_tests
     ComplexTest.cpp
     CompoundTest.cpp
     DequeTest.cpp
+    EnumTest.cpp
     FundamentalTest.cpp
     ListTest.cpp
     MapTest.cpp

@@ -94,6 +94,10 @@ Serialization and deserialization support for integral and floating-point types.
 
 Serialization and deserialization support for C-style arrays.
 
+### `serialization/enum.h`
+
+Serialization and deserialization support for enumerations (both scoped and unscoped).
+
 ### `serialization/*.h`
 
 Serialization and deserialization support for STL types.
