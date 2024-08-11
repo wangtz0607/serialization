@@ -2,6 +2,7 @@
 
 #include <cstddef>
 #include <exception>
+#include <span>
 #include <utility>
 #include <vector>
 
@@ -42,7 +43,7 @@ private:
 
 class DeserializationStream {
 public:
-    explicit DeserializationStream(std::vector<std::byte> buf) : buf_(std::move(buf)) {
+    explicit DeserializationStream(std::span<const std::byte> buf) : buf_(buf) {
         cur_ = buf_.data();
     }
 
@@ -57,7 +58,7 @@ public:
     }
 
 private:
-    std::vector<std::byte> buf_;
+    std::span<const std::byte> buf_;
     const std::byte *cur_;
 };
 
@@ -69,8 +70,8 @@ std::vector<std::byte> serialize(const T &value) {
 }
 
 template <typename T>
-T deserialize(std::vector<std::byte> buf) {
-    DeserializationStream ds(std::move(buf));
+T deserialize(std::span<const std::byte> buf) {
+    DeserializationStream ds(buf);
     T value;
     ds >> value;
     return value;

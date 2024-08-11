@@ -14,7 +14,7 @@ TEST(ArrayTest, array) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.takeData());
+    DeserializationStream ds(ss.data());
     ds >> deserialized;
 
     EXPECT_EQ(deserialized, original);

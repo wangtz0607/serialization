@@ -13,7 +13,7 @@ TEST(StringTest, string) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.takeData());
+    DeserializationStream ds(ss.data());
     ds >> deserialized;
 
     EXPECT_EQ(original, deserialized);
@@ -25,7 +25,7 @@ TEST(StringTest, wstring) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.takeData());
+    DeserializationStream ds(ss.data());
     ds >> deserialized;
 
     EXPECT_EQ(original, deserialized);
@@ -37,7 +37,7 @@ TEST(StringTest, u8string) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.takeData());
+    DeserializationStream ds(ss.data());
     ds >> deserialized;
 
     EXPECT_TRUE(original == deserialized); // workaround
@@ -49,7 +49,7 @@ TEST(StringTest, u16string) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.takeData());
+    DeserializationStream ds(ss.data());
     ds >> deserialized;
 
     EXPECT_EQ(original, deserialized);
@@ -61,7 +61,7 @@ TEST(StringTest, u32string) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.takeData());
+    DeserializationStream ds(ss.data());
     ds >> deserialized;
 
     EXPECT_EQ(original, deserialized);

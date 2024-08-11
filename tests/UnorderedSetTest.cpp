@@ -14,7 +14,7 @@ TEST(UnorderedSetTest, unordered_set) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.takeData());
+    DeserializationStream ds(ss.data());
     ds >> deserialized;
 
     EXPECT_EQ(deserialized, original);
@@ -26,7 +26,7 @@ TEST(UnorderedSetTest, unordered_multiset) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.takeData());
+    DeserializationStream ds(ss.data());
     ds >> deserialized;
 
     EXPECT_EQ(deserialized, original);
