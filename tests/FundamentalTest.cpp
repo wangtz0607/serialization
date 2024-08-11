@@ -18,7 +18,7 @@ void test(T original) {
 
     T deserialized;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     EXPECT_EQ(deserialized, original);
@@ -31,7 +31,7 @@ void testFloating(T original) {
 
     T deserialized;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     EXPECT_EQ(std::bit_cast<Integer>(deserialized), std::bit_cast<Integer>(original));

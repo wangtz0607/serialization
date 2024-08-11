@@ -2,7 +2,6 @@
 
 #include <cstddef>
 #include <exception>
-#include <span>
 #include <utility>
 #include <vector>
 
@@ -29,12 +28,12 @@ public:
         return *this;
     }
 
-    std::vector<std::byte> vector() const {
+    const std::vector<std::byte> &data() const {
         return buf_;
     }
 
-    std::span<const std::byte> span() const {
-        return buf_;
+    std::vector<std::byte> takeData() {
+        return std::move(buf_);
     }
 
 private:
@@ -66,7 +65,7 @@ template <typename T>
 std::vector<std::byte> serialize(const T &value) {
     SerializationStream ss;
     ss << value;
-    return ss.vector();
+    return ss.takeData();
 }
 
 template <typename T>

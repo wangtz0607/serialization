@@ -14,7 +14,7 @@ TEST(VectorTest, vector) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     EXPECT_EQ(deserialized, original);

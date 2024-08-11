@@ -14,7 +14,7 @@ TEST(UnorderedMapTest, unordered_map) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     EXPECT_EQ(deserialized, original);
@@ -26,7 +26,7 @@ TEST(UnorderedMapTest, unordered_multimap) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     EXPECT_EQ(deserialized, original);

@@ -29,7 +29,7 @@ int main() {
 
     std::unordered_map<std::string, int> deserialized;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     assert(deserialized == original);
@@ -72,7 +72,7 @@ int main() {
 
     Person deserialized;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     assert(deserialized == original);

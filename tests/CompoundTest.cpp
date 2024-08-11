@@ -14,7 +14,7 @@ TEST(CompoundTest, array) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     EXPECT_TRUE(std::equal(deserialized, deserialized + 6, original));

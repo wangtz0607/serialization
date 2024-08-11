@@ -15,7 +15,7 @@ TEST(VariantTest, variant_first_alternative) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     EXPECT_EQ(deserialized, original);
@@ -27,7 +27,7 @@ TEST(VariantTest, variant_second_alternative) {
     SerializationStream ss;
     ss << original;
 
-    DeserializationStream ds(ss.vector());
+    DeserializationStream ds(ss.takeData());
     ds >> deserialized;
 
     EXPECT_EQ(deserialized, original);
